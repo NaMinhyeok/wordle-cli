@@ -10,9 +10,9 @@ class ResultFlag(Enum):
     INCORRECT = "🟥"
 
 class Result:
-    def __init__(self, word: Word, flags: List[ResultFlag]):
-        if len(flags) != 5:
-            raise ValueError("Flags must contain exactly 5 elements.")
+    def __init__(self, word: Word, flags: List[ResultFlag]) -> None:
+        if len(flags) != Word.WORD_LENGTH:
+            raise ValueError(f"Flags must contain exactly {Word.WORD_LENGTH} elements.")
         self.word = word
         self.flags = flags
 

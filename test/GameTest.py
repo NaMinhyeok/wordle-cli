@@ -43,3 +43,12 @@ def test_동일한_위치에_알파벳이_존재하지_않고_전체_단어에_�
     assert result.flags[2] == ResultFlag.PARTIAL
     assert result.flags[3] == ResultFlag.INCORRECT
     assert result.flags[4] == ResultFlag.INCORRECT
+
+
+def test_is_over_count():
+    game = Game(Word("apple"))
+    
+    for _ in range(Game.MAX_ATTEMPTS):
+        game.guess(Word("wrong"))
+    
+    assert game.is_over_count() == True
